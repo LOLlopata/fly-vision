@@ -11,7 +11,7 @@
     <h1 class="text-light">
         {{ request.user.username }}
     </h1>
-    <img class="rounded-5" style=" width: 300px;" src="{{ request.user.photo.url }}" alt="">
+    <img class="rounded-5" style=" width: 301px;" src="{{ request.user.photo.url }}" alt="">
     <h1>Любимые фильмы</h1>
     {% for movie in request.user.favMovie.all %}
         <img class="rounded-5" style="width: auto;" src="{{ movie.poster.url }}" class="card-img-top" alt="">
