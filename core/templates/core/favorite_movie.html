@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+{% block title %}Favorite Movie{% endblock %}
+{% block section %}
+    <div class="d-flex align-items-center flex-column gap-4">
+        <div class="text-center text-white bg-dark" style="width: 20rem;">
+            {% for movie in request.user.favMovie.all %}
+                <img style="width: auto;" src="{{ movie.poster.url }}" class="card-img-top rounded-4" alt="">
+                <h3> {{ movie.title }}{% if not forloop.last %},{% endif %}</h3>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

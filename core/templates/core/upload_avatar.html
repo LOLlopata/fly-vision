@@ -1,0 +1,5 @@
+<form  method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="avatar" accept="image/*" required>
+    <button class="rounded-3 bg-dark text-white" type="submit">Загрузить аватар</button>
+</form>

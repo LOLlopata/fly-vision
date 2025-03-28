@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+{% block title %}регистрация{% endblock %}
+{% block section %}
+    <h1 class="text-center" >Register pls!</h1>
+    {{ error }}
+    <form action="" method="post" class="form-example d-flex flex-column" style="margin-left: 20rem; margin-right: 20rem;">
+        {% csrf_token %}
+        <input class="rounded-1 text-secondary border-white" style="margin-top: 2rem; background-color: #bebebe;" type="login" name="login" id="login" required />
+        <input class="rounded-1 text-secondary border-white" style="margin-top: 2rem; background-color: #bebebe;" type="email" name="email" id="email" required />
+        <input class="rounded-1 text-secondary border-white" style="margin-top: 2rem; background-color: #bebebe;" type="password" name="password" id="password" required />
+        <input class="rounded-1 text-secondary border-white" style="margin-top: 2rem; background-color: #bebebe;" type="repeat_password" name="repeat_password" id="repeat_password" required />
+        <button class="rounded-1 text-secondary border-white" style="margin-top: 2rem; background-color: #bebebe;" type="submit">confirm</button>
+    </form>
+{% endblock %}

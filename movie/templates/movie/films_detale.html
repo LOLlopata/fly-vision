@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %}
+{% block titile %}{ film.title }{% endblock %}
+{% block section %}
+    </div>
+    <img src="{{ film.poster.url }}" alt="">
+    <h5 class="text-light">{{ film.description }}</h5>
+    <img src="{{ film.photo.url }}" alt="">
+    <div class="d-flex gap-1 flex-column">
+        {% if film.videorolik.url != Null %}
+        <video controls>
+            <source src="{{ film.videorolik.url }}">
+        </video>
+        {% endif %}
+        <div class="text-secondary" style="margin-top: 2rem;">
+            <form action="{% url 'leave_review' %}" method="post">
+                {% csrf_token %}  
+                <input type="hidden" value="{{film.id}}" name="movie_id">
+                <textarea name="user_review" id=""></textarea>
+                <button class="btn btn-light" style="margin-bottom: 3rem; margin-left: 2rem;" type="submit">отправить</button>
+            </form>
+        </div>
+        <div class="">
+            {% for review in reviews %}
+                <div class="border-secondary rounded-2 border-1 boreder ">
+                    <h6 class="gap-2">
+                        {{ review.author.username }}
+                    </h6>
+                    <p class="text-light">{{ review.text }}</p>
+                    <div>
+                        <span class="text-secondary fs-6">
+                            {{ review.created_at }}
+                        </span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

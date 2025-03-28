@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+{% block title %}Профиль{% endblock %}
+{% block section %}
+
+<div class="text-light d-flex align-items-center flex-column gap-4">
+    {% include 'core/upload_avatar.html' %}
+    {% if user.profile.avatar %}
+        <img src="{{ user.profile.avatar.url }}" alt="Аватар">
+    {% else %}
+    {% endif %}
+    <h1 class="text-light">
+        {{ request.user.username }}
+    </h1>
+    <img class="rounded-5" style=" width: 300px;" src="{{ request.user.photo.url }}" alt="">
+    <h1>Любимые фильмы</h1>
+    {% for movie in request.user.favMovie.all %}
+        <img class="rounded-5" style="width: auto;" src="{{ movie.poster.url }}" class="card-img-top" alt="">
+        <h3> {{ movie.title }}{% if not forloop.last %},{% endif %}</h3>
+    {% endfor %}
+    
+    {% for movie in request.user.wathedMovie.all %}
+        <img class="rounded-4" style="width: auto;" src="{{ movie.poster.url }}" class="card-img-top" alt="">
+        <h3> {{ movie.title }}{% if not forloop.last %},{% endif %}</h3>
+    {% endfor %}
+    <h3>
+        {{ request.user.gender }}
+    </h3>
+</div>
+{% endblock %}

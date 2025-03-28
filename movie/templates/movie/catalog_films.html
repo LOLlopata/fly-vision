@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+{% block titile %}каталог{% endblock %}
+{% block section %}
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+        {% for movie in films %}
+        <div class="card bg-dark" style="width: 18rem;">
+            <a href="{% url 'detale_films' films_id=movie.id %}" target="_blank" class="text-decoration-none text-light">
+            <img src="{{ movie.poster.url }}" class="card-img-top" alt="">
+            <div class="card-body">
+            <h5 class="card-title text-white">{{ movie.title }}</h5>
+            <p class="card-text text-white">
+                {% for genre in movie.genres.all %}
+                {{ genre.name }}{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            </p>
+            </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

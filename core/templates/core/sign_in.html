@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+{% block title %}войти{% endblock %}
+{% block section %}
+    <h1 class="text-center">Sign in pls!</h1>
+    {{ error }}
+    <form action="" method="post" class="form-example d-flex flex-column" style="margin-left: 24rem; margin-right: 24rem;">
+        {% csrf_token %}
+        <input class="rounded-1 text-secondary border-white shadow-lg" style="margin-top: 3rem; background-color: #bebebe;" type="text" name="username" id="username" required />
+        <input class="rounded-1 text-seconddary border-white shadow-lg" style="margin-top: 3rem; background-color: #bebebe;" type="password" name="password" id="password" required />
+        <button class="rounded-1 text-secondary border-white shadow-lg" style="margin-top: 3rem; background-color: #bebebe;" type="submit">confirm</button>
+    </form>
+{% endblock %}
