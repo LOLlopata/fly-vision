@@ -1,5 +1,5 @@
 {% extends 'core/base.html' %}
-{% block title %}Профиль{% endblock %}
+{% block title %}{{ request.user.username }}{% endblock %}
 {% block section %}
 
 <div class="text-light d-flex align-items-center flex-column gap-4">
